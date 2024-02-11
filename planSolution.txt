@@ -1,0 +1,17 @@
+- Projeto simples de um jogo de pedra, papel e tesoura;
+- Futuramente fazer em uma interface, por enquanto apenas por CLI;
+- Criar uma função chamada "getComputerChoice" para randomizar uma das
+três escolhas;
+- Adicionar o retorno dessa função em uma variável para passar para 
+outra função;
+	° Verificar se o retorno está dando certo antes de seguir.
+- Essa outra função se chamará playRound, que será usada para fazer uma
+rodada do jogo, além da escolha aleatória do "bot", ela também precisa
+da escolha do usuário como parâmetro;
+	° Essa escolha do usuário é necessário ser passada para caixa
+	pequena ou alta, pois o javascript é case sensitive, e o usuário
+	pode escrever de várias formas a escolha dele, como "ROck", "Rock",
+	"rOcK", etc.
+	° Talvez seja necessário criar um loop simples de verificação, caso
+	o usuário escreva algo nada a ver como "pizza", "panela", "trator", 
+	assim enquanto ele não escrever uma das três escolhas ele não sai.
