@@ -20,4 +20,37 @@ se houve um empate;
 - Agora deve-se fazer uma simulação real do jogo criando 5 rodadas usando a 
 funçao anterior, para isso será criado uma função "playGame"; que conterá um
 loop até que a pontuação de um dos dois(computador ou jogador) sejam diferentes,
-executando cada rodada 5 vezes com o loop.
+executando cada rodada 5 vezes com o loop;
+- (11/02/2024) Ainda não fiz algo para causar um desempate entre os dois, mas 
+futuramente farei uma GUI para o projeto, então acho que vou deixar pra fazer
+junto.
+
+English Translation
+
+- Simple project of a game of rock, paper and scissors;
+- In the future, do it in an interface, for now only by CLI;
+- Create a function called "getComputerChoice" to randomize one of the
+three choices;
+- Add the return of this function in a variable to pass to 
+other function;
+	° Check if the return is working before moving on.
+- This other function will be called playRound, which will be used to make a
+round of the game, in addition to the random choice of the "bot", it also needs to
+the user's choice as a parameter;
+	° This user's choice needs to be passed to the cashier
+	small or high, because JavaScript is case sensitive, and the user
+	you can write in various ways of your choice, such as "ROck", "Rock",
+	"rOcK", etc;
+	° You may need to create a simple check loop if
+	the user writes something nothing to do like "pizza", "pot", "tractor", 
+	So as long as he doesn't write down one of the three choices, he doesn't leave.
+- The main purpose of the "playRound" function is to identify the winner or
+whether there was a draw;
+- Now you have to make a real simulation of the game by creating 5 rounds using the 
+previous function, for this a "playGame" function will be created; that will contain a
+loop until the score of one of the two (computer or player) are different,
+performing each round 5 times with the loop;
+- (02/11/2024) I haven't done anything yet to cause a tiebreaker between the two, but 
+in the future I'll make a GUI for the project, so I guess I'll leave it to do
+together.
+	
