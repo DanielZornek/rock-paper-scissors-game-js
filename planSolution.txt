@@ -15,3 +15,9 @@ da escolha do usuário como parâmetro;
 	° Talvez seja necessário criar um loop simples de verificação, caso
 	o usuário escreva algo nada a ver como "pizza", "panela", "trator", 
 	assim enquanto ele não escrever uma das três escolhas ele não sai.
+- A função "playRound", tem como objetivo principal identificar o vencedor ou
+se houve um empate;
+- Agora deve-se fazer uma simulação real do jogo criando 5 rodadas usando a 
+funçao anterior, para isso será criado uma função "playGame"; que conterá um
+loop até que a pontuação de um dos dois(computador ou jogador) sejam diferentes,
+executando cada rodada 5 vezes com o loop.
