@@ -1,11 +1,11 @@
 let userChoice;
 let computerChoice;
 let loopControl = true;
+const choices = ["rock", "paper", "scissors"];
+let randomNumber = Math.floor(Math.random() * 3);
 
 function getComputerChoice(){
-    const choices = ["rock", "paper", "scissors"];
-    let randomNumber = Math.floor(Math.random() * 3);
-    let computerChoice = choices[randomNumber];
+    computerChoice = choices[randomNumber];
 
     return computerChoice;
 }
@@ -43,19 +43,20 @@ let defineWinner = (userChoice, computerChoice) => {
 function playRound(userChoice, computerChoice){
     // Verifying the user input
     while(loopControl){
-        if(userChoice === "rock" || userChoice === "paper" || userChoice === "scissors"){
-            loopControl = false;
-        }else{
+        if(userChoice != "rock" && userChoice != "paper" && userChoice !=  "scissors"){
             userChoice = prompt("Sorry, I don't understand, try again: | Rock | Paper| Scissors |").toLowerCase();
+        }else{
+            loopControl = false;
         }
     }
 
+    newWinner = defineWinner(userChoice, computerChoice);
     console.log(`Your Choose: ${userChoice}\nOponent Choose: ${computerChoice}`);
 
-    let newWinner = defineWinner(userChoice, computerChoice);
     return newWinner;
 }
 
+let newWinner;
 let computerWins = 0; 
 let userWins = 0;
 let drawCounts = 0;
@@ -63,6 +64,7 @@ let winnerGame;
 
 function playGame(){
     for(let i = 0; i < 5; i++){
+        loopControl = true;
         console.log(playRound(prompt("choose: | Rock | Paper| Scissors |").toLowerCase(), getComputerChoice()));
 
         if(actualWinner === "user"){
