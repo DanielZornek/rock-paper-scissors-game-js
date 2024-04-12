@@ -13,8 +13,30 @@
         <p>The best game developer of my house XD</p>
     </header>
 
-    <main>
-        <h1>Rock, paper and Scissors game</h1>
+    <h1>Rock, paper and Scissors game</h1>
+
+    <main onload="playGame()">
+        <div class="choose-container">
+            <div class="choose-button" onclick="playRound('rock')">
+                <img src="src/rock.png" alt="">
+            </div>
+            <div class="choose-button" onclick="playRound('paper')">
+                <img src="src/paper.png" alt="">
+            </div>
+            <div class="choose-button" onclick="playRound('scissors')">
+                <img src="src/scissors.png" alt="">
+            </div>
+        </div>
+
+        <div id="result-area">
+
+        </div>
+
+        <div id="score-area">
+            <span id="user-wins">User Wins: </span>
+            <span id="computer-wins">Computer Wins: </span>
+            <span id="draws">Draws: </span>
+        </div>
     </main>
 
     <footer>Developed By &copy;DanielZornek</footer>

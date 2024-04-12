@@ -1,11 +1,20 @@
-let userChoice;
 let computerChoice;
-let loopControl = true;
+const resultArea = document.querySelector("#result-area");
 const choices = ["rock", "paper", "scissors"];
-let randomNumber = Math.floor(Math.random() * 3);
+let buttons = document.querySelectorAll(".choose-button");
+let roundControl = 5;
+let userWinsArea = document.querySelector("#user-wins"); 
+let computerWinsArea = document.querySelector("#computer-wins"); 
+let draws = document.querySelector("#draws"); 
+
+let newWinner;
+let computerWins = 0; 
+let userWins = 0;
+let drawCounts = 0;
+let winnerGame;
 
 function getComputerChoice(){
-    computerChoice = choices[randomNumber];
+    computerChoice = choices[Math.floor(Math.random() * 3)];
 
     return computerChoice;
 }
@@ -41,57 +50,40 @@ let defineWinner = (userChoice, computerChoice) => {
 }
 
 function playRound(userChoice, computerChoice){
-    // Verifying the user input
-    while(loopControl){
-        if(userChoice != "rock" && userChoice != "paper" && userChoice !=  "scissors"){
-            userChoice = prompt("Sorry, I don't understand, try again: | Rock | Paper| Scissors |").toLowerCase();
-        }else{
-            loopControl = false;
-        }
-    }
 
+    computerChoice = getComputerChoice();
     newWinner = defineWinner(userChoice, computerChoice);
-    console.log(`Your Choose: ${userChoice}\nOponent Choose: ${computerChoice}`);
 
-    return newWinner;
+    resultArea.firstChild.textContent = `Your Choose: ${userChoice} | Oponent Choose: ${computerChoice} | ${defineWinner(userChoice, computerChoice)}`;
+
+    if(actualWinner === "user"){
+        userWins++; 
+        userWinsArea.textContent = `User Wins: ${userWins}`;
+    }else if(actualWinner === "computer"){
+        computerWins++;
+        computerWinsArea.textContent = `Computer wins: ${computerWins}`;
+    }else if(actualWinner === "draw"){
+        drawCounts++;
+        draws.textContent = `Draws: ${drawCounts}`;
+    }
+    //console.log(`Your Choose: ${userChoice}\nOponent Choose: ${computerChoice}\n${defineWinner(userChoice, computerChoice)}`);
+    if(roundControl === 0){
+        verifyDraw();
+    }else{
+        roundControl--;
+    }
 }
 
-let newWinner;
-let computerWins = 0; 
-let userWins = 0;
-let drawCounts = 0;
-let winnerGame;
-
-function playGame(){
-    for(let i = 0; i < 5; i++){
-        loopControl = true;
-        console.log(playRound(prompt("choose: | Rock | Paper| Scissors |").toLowerCase(), getComputerChoice()));
-
-        if(actualWinner === "user"){
-            userWins++; 
-        }else if(actualWinner === "computer"){
-            computerWins++;
-        }else if(actualWinner === "draw"){
-            drawCounts++;
-        }
-    }
-
+function verifyDraw(){
     if(userWins > computerWins){
         winnerGame = "user";
     }else if(computerWins > userWins){
         winnerGame = "computer";
+    }else if(userWins == computerWins){
+        resultArea.textContent = "This is the Golden POINT, the next winner will win the game!"
     }else{
-        winnerGame = "Draw";
+        loopControl = false;
+        buttons.disabled =  true;
+        resultArea.textContent = `The winner is ${winnerGame}`;
     }
-
-    return `
-                        Final of Game\n
-                      Here Are the results
-        Winner: ${winnerGame}
-        User Total Wins: ${userWins}
-        Computer Total Wins: ${computerWins}
-        Draws: ${drawCounts}           
-    `;
 }
-
-console.log(playGame());
