@@ -1,6 +1,7 @@
 let computerChoice;
 const resultArea = document.querySelector("#result-area");
 const choices = ["rock", "paper", "scissors"];
+let chooseContainer = document.querySelector(".choose-container");
 let buttons = document.querySelectorAll(".choose-button");
 let roundControl = 5;
 let userWinsArea = document.querySelector("#user-wins"); 
@@ -67,23 +68,37 @@ function playRound(userChoice, computerChoice){
         draws.textContent = `Draws: ${drawCounts}`;
     }
     //console.log(`Your Choose: ${userChoice}\nOponent Choose: ${computerChoice}\n${defineWinner(userChoice, computerChoice)}`);
-    if(roundControl === 0){
+    roundControl--;
+    console.log(roundControl);
+
+    if(roundControl <= 0){
         verifyDraw();
-    }else{
-        roundControl--;
     }
 }
 
 function verifyDraw(){
     if(userWins > computerWins){
         winnerGame = "user";
+        chooseContainer.classList.add("display-none");
+        resultArea.textContent = `The winner is ${winnerGame}`;
     }else if(computerWins > userWins){
         winnerGame = "computer";
+        chooseContainer.classList.add("display-none");
+        resultArea.textContent = `The winner is ${winnerGame}`;
     }else if(userWins == computerWins){
         resultArea.textContent = "This is the Golden POINT, the next winner will win the game!"
-    }else{
-        loopControl = false;
-        buttons.disabled =  true;
-        resultArea.textContent = `The winner is ${winnerGame}`;
     }
+}
+
+function restartGame(){
+    userWins = 0;
+    computerWins = 0;
+    drawCounts = 0;
+    roundControl = 5;
+
+    chooseContainer.classList.remove("display-none");
+    userWinsArea.textContent = `User Wins: 0`;
+    computerWinsArea.textContent = `Computer wins: 0`;
+    draws.textContent = `Draws: 0`;
+    
 }
