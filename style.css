@@ -2,6 +2,39 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/*
+    pallete: #021329, #436A90, #9DE2BA, #8DCE72, #079850 
+*/
+
+header{
+    background-color: rgba(0, 0, 0, 0.512);
+    color: aliceblue;
+    padding: 2em;
+}
+
+#gameTitle{
+    text-align: center;
+    color: #fff;
+    margin: 2em auto;
+}
+
+body{
+    background-color: #021329;
+}
+
+main{
+    width: 80%;
+    background-color: #079850;
+    margin: auto;
+    padding: 2em;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .choose-container{
@@ -12,13 +45,76 @@
 }
 
 .choose-button{
-    background-color: blueviolet;
+    width: 18vw;
+    background-color: rgba(0, 0, 0, 0.612);
     cursor: pointer;
-    padding: 2em;
+    padding: 2%;
+    transition: .4s;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.choose-button:hover{
+    background-color: rgba(0, 0, 0, 0.412);
+    transition: .4s;
+}
+
+.choose-button > img{
+    transition: .2s ease-in-out;
+}
+
+.choose-button:hover > img{
+    transform: scale(2);
+    transition: .2s ease-in-out;
 }
 
 .choose-button > img{
     width: 5vw;
+}
+
+#result-area{
+    color: #fff;
+    font-size: 1.2em;
+    font-weight: 600;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.412);
+}
+
+#score-area{
+    width: 25vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    background-color: rgba(0, 0, 0, 0.612);
+    padding: 4%;
+    color: #8DCE72;
+    white-space: nowrap;
+}
+
+#restart-btn{
+    padding: 1.2em;
+    cursor: pointer;
+    background-color: #9DE2BA;
+    color: #021329;
+    outline: none;
+    border: 1px solid #021329;
+    border-radius: 2em;
+}
+
+#restart-btn:hover{
+    background-color: #021329;
+    border: 1px solid #8DCE72;
+    color: #8DCE72;
+}
+
+footer{
+    background-color: rgba(0, 0, 0, 0.512);
+    color: #fff;
+    padding: 2em;
+}
+
+footer p{
+    text-align: center;
 }
 
 .display-none{

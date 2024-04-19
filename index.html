@@ -13,7 +13,7 @@
         <p>The best game developer of my house XD</p>
     </header>
 
-    <h1>Rock, paper and Scissors game</h1>
+    <h1 id="gameTitle">Rock, paper and Scissors game</h1>
 
     <main onload="playGame()">
         <div class="choose-container">
@@ -44,8 +44,16 @@
 
     </main>
 
-    <footer>Developed By &copy;DanielZornek</footer>
+    <footer>
+        <p id="textFooter">
+
+        </p>
+    </footer>
 
     <script src="script.js" defer></script>
+    <script>
+        let year = new Date().getFullYear();
+        document.querySelector("#textFooter").textContent = `Developed By © ${year} DanielZornek`;
+    </script>
 </body>
 </html>
