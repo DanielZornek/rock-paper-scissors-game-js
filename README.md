@@ -14,4 +14,4 @@ The simple old game to practice the fundamentals, a project purposed by "Odin Pr
 
 ## Play The Game!
 
-I hosted it with github pages, you can **[play here]([https://danielzornek.github.io/landing-page-odin-project/](https://danielzornek.github.io/rock-paper-scissors-game-js/)**.
+I hosted it with github pages, you can **[play here](https://danielzornek.github.io/rock-paper-scissors-game-js/)**.
